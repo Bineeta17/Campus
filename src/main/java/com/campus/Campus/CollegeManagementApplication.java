@@ -25,7 +25,7 @@ public class CollegeManagementApplication {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()				
 				//.paths(PathSelectors.ant("/Staff/*"))
-				.apis(RequestHandlerSelectors.basePackage("com.CollegeManagement"))
+				.apis(RequestHandlerSelectors.basePackage("com.campus.Campus"))
 				.build()
 				.apiInfo(apiInfo());
 	}
