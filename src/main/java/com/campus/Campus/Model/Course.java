@@ -24,6 +24,7 @@ public class Course {
 	
 	@OneToOne(mappedBy="course")
 	private Account account;
+	
 	public int getC_id() {
 		return c_id;
 	}
