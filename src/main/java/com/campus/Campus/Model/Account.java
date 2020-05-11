@@ -14,16 +14,11 @@ import javax.persistence.Table;
 public class Account {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	int acc_id;
 	String name;
 	String semester;
 	String batch;
 	
-	@OneToOne
-	@JoinColumn(name="course_id")
-	private Course course;
 	public int getAcc_id() {
 		return acc_id;
 	}
@@ -48,6 +43,5 @@ public class Account {
 	public void setBatch(String batch) {
 		this.batch = batch;
 	}
-	
 	
 }

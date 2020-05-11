@@ -17,13 +17,12 @@ public class Course {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	int c_id;
 	@ApiModelProperty(notes="Name")
 	String c_name;
 	
 	@OneToOne(mappedBy="course")
-	private Account account;
+	private Student stu;
 	public int getC_id() {
 		return c_id;
 	}
@@ -33,11 +32,4 @@ public class Course {
 	public String getC_name() {
 		return c_name;
 	}
-	
-	
-
-	
-	
-	
-	
 }
