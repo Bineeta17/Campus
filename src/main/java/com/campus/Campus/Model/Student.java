@@ -1,7 +1,12 @@
 	package com.campus.Campus.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -10,6 +15,8 @@ import io.swagger.annotations.ApiModelProperty;
 @Table(name="student")
 public class Student {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Column(name="id")
 	int stu_id;
 	@ApiModelProperty(notes="Name")
 	String name;
@@ -29,6 +36,11 @@ public class Student {
 	float criteria;
 	@ApiModelProperty(notes="Password")
 	String password;
+	
+	@OneToOne
+	@JoinColumn(name="course_id")
+	private Course course;
+	
 	public int getStu_id() {
 		return stu_id;
 	}
@@ -89,6 +101,11 @@ public class Student {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
+	}
 	
 }
