@@ -3,12 +3,14 @@ package com.campus.Campus.Model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,6 +27,7 @@ public class Course {
 	int c_id;
 	@ApiModelProperty(notes = "Name")
 	String c_name;
+
 
 	@OneToOne(mappedBy = "course")
 	@JsonIgnore
@@ -57,6 +60,11 @@ public class Course {
 	public void setC_name(String c_name) {
 		this.c_name = c_name;
 	}
+
+
+	@OneToOne(mappedBy="course")
+	private Student stu;
+	
 
 	public int getC_id() {
 		return c_id;
