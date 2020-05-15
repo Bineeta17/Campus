@@ -1,11 +1,10 @@
 package com.campus.Campus.Model;
 
-import javax.persistence.Column;
+import java.sql.Date;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -14,28 +13,39 @@ import javax.persistence.Table;
 public class Account {
 
 	@Id
-	int acc_id;
-	String name;
-	String semester;
+	int receipt_id;
 	String batch;
-	
-	public int getAcc_id() {
-		return acc_id;
+	private Date date;
+	private String modeOfPayment;
+	private double amount;
+	@OneToOne
+	Student student;
+	@ManyToOne
+	Course course;
+
+	public Date getDate() {
+		return date;
 	}
-	public void setAcc_id(int acc_id) {
-		this.acc_id = acc_id;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	public String getName() {
-		return name;
+	public String getModeOfPayment() {
+		return modeOfPayment;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setModeOfPayment(String modeOfPayment) {
+		this.modeOfPayment = modeOfPayment;
 	}
-	public String getSemester() {
-		return semester;
+	public double getAmount() {
+		return amount;
 	}
-	public void setSemester(String semester) {
-		this.semester = semester;
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+		public int getReceipt_id() {
+		return receipt_id;
+	}
+	public void setReceipt_id(int receipt_id) {
+		this.receipt_id = receipt_id;
 	}
 	public String getBatch() {
 		return batch;
@@ -43,5 +53,18 @@ public class Account {
 	public void setBatch(String batch) {
 		this.batch = batch;
 	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+	
 	
 }

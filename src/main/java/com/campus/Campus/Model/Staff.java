@@ -1,8 +1,16 @@
 package com.campus.Campus.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -27,6 +35,11 @@ public class Staff {
 	String dob_date;
 	@ApiModelProperty(notes="DOJ_Date")
 	String doj_date;
+	
+	@ManyToOne()
+	@JsonIgnore
+	Department dept;
+	
 	public int getStaff_id() {
 		return staff_id;
 	}
@@ -81,6 +94,12 @@ public class Staff {
 	public void setDoj_date(String doj_date) {
 		this.doj_date = doj_date;
 	}
+	public Department getDept() {
+		return dept;
+	}
+	public void setDept(Department dept) {
+		this.dept = dept;
+	}
 	
-
 }
+	

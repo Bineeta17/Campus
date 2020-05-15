@@ -41,6 +41,9 @@ public class Student {
 	@JoinColumn(name="course_id")
 	private Course course;
 	
+	@OneToOne(mappedBy="student")
+	Account account;
+	
 	public int getStu_id() {
 		return stu_id;
 	}
@@ -106,6 +109,12 @@ public class Student {
 	}
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 	
 }

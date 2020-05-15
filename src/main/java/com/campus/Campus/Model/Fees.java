@@ -1,19 +1,27 @@
 package com.campus.Campus.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="fees")
 public class Fees {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	int f_id;
 	double tution_fee;
 	double annual_charge;
 	double library_charge;
 	double sports_charge;
+	double total;
 	String receipt_no;
 	String receipt_date;
+	
+	@OneToOne(mappedBy="fee")
+	private Course course;
 	public int getF_id() {
 		return f_id;
 	}
@@ -43,6 +51,12 @@ public class Fees {
 	}
 	public void setSports_charge(double sports_charge) {
 		this.sports_charge = sports_charge;
+	}
+	public double getTotal() {
+		return total;
+	}
+	public void setTotal() {
+		this.total = getTution_fee()+getAnnual_charge()+getLibrary_charge()+getSports_charge();
 	}
 	public String getReceipt_no() {
 		return receipt_no;
