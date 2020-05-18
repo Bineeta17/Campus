@@ -26,6 +26,7 @@ public class Department {
 	@JoinColumn(name = "dept_d_id")
 	private List<Staff> staff;
 	
+
 	public int getD_id() {
 		return d_id;
 	}

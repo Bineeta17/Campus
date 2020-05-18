@@ -33,6 +33,8 @@ public class Course {
 	@JsonIgnore
 	private Student stu;
 
+	
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "course_c_id")
 	private List<Account> account;
@@ -60,10 +62,6 @@ public class Course {
 	public void setC_name(String c_name) {
 		this.c_name = c_name;
 	}
-
-
-	@OneToOne(mappedBy="course")
-	private Student stu;
 	
 
 	public int getC_id() {
