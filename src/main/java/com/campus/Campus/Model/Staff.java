@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -36,9 +39,11 @@ public class Staff {
 	@ApiModelProperty(notes="DOJ_Date")
 	String doj_date;
 	
-	@ManyToOne()
-	@JsonIgnore
-	Department dept;
+
+//    @ManyToMany(mappedBy = "staff")
+//    private List<Department> dept;
+//	
+	
 	
 	public int getStaff_id() {
 		return staff_id;
@@ -94,12 +99,16 @@ public class Staff {
 	public void setDoj_date(String doj_date) {
 		this.doj_date = doj_date;
 	}
-	public Department getDept() {
-		return dept;
-	}
-	public void setDept(Department dept) {
-		this.dept = dept;
-	}
+//	public List<Department> getDept() {
+//		return dept;
+//	}
+//	public void setDept(List<Department> dept) {
+//		this.dept = dept;
+//	}
+	
+	
+	
+	
 	
 }
 	
