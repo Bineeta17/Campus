@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,6 +20,7 @@ import io.swagger.annotations.ApiModelProperty;
 @Table(name="staff")
 public class Staff {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int staff_id;
 	@ApiModelProperty(notes="Name")
 	String name;
@@ -99,6 +102,7 @@ public class Staff {
 	}
 	public void setDept(Department dept) {
 		this.dept = dept;
+		
 	}
 	
 }
