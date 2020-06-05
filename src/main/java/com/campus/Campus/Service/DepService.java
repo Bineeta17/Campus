@@ -21,7 +21,10 @@ public class DepService {
 	private DepDao dao;
 	@Autowired
 	private StaffDao staffDao;
-	
+	public Department addDept(Department dept)
+	{
+		return dao.save(dept);
+	}
 	public Department add(Department dept)
 	{
 		 if(!dao.findById(dept.getD_id()).isPresent())

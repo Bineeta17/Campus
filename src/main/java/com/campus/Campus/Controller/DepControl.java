@@ -32,6 +32,11 @@ public class DepControl {
 		return service.add(dept);
 	}
 	
+	@ApiOperation(value="Create Department Only")
+	@PostMapping("/Create Department Only")
+	public Department addDept(@RequestBody Department dept) {
+		return service.addDept(dept);
+	}
 
 	@DeleteMapping("/delete/{id}")
 	public void deleteDept(@PathVariable int id) {

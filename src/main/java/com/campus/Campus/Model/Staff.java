@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiModelProperty;
 @Table(name="staff")
 public class Staff {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.AUTO)
 	int staff_id;
 	@ApiModelProperty(notes="Name")
 	String name;
