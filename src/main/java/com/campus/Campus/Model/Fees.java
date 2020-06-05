@@ -22,6 +22,7 @@ public class Fees {
 	
 	@OneToOne(mappedBy="fee")
 	private Course course;
+
 	public int getF_id() {
 		return f_id;
 	}

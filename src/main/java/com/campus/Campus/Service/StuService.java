@@ -14,11 +14,13 @@ import com.campus.Campus.Model.Student;
 
 @Service
 public class StuService {
+	
+	
 	@Autowired
 	private StuDao dao;
 	
 	public Student AddStudent(Student stu)
-	{ 
+	{
 		dao.save(stu);
 		return stu;
 	}
@@ -37,9 +39,7 @@ public class StuService {
 	{
 		Optional<Student> student = dao.findById(stu_id);
 			if (!student.isPresent()) throw new StudentNotFoundException("id-" + stu_id);
-
 		return student.get();
-
 	}
 	
 	public Student GetByName(String name)
@@ -62,4 +62,5 @@ public class StuService {
 	{
 		dao.deleteById(stu_id);
 	}
+
 }

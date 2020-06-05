@@ -40,9 +40,9 @@ public class Staff {
 	String doj_date;
 	
 
-//    @ManyToMany(mappedBy = "staff")
-//    private List<Department> dept;
-//	
+	@ManyToOne()
+	@JsonIgnore
+	Department dept;
 	
 	
 	public int getStaff_id() {
@@ -99,12 +99,13 @@ public class Staff {
 	public void setDoj_date(String doj_date) {
 		this.doj_date = doj_date;
 	}
-//	public List<Department> getDept() {
-//		return dept;
-//	}
-//	public void setDept(List<Department> dept) {
-//		this.dept = dept;
-//	}
+	public Department getDept() {
+		return dept;
+	}
+	public void setDept(Department dept) {
+		this.dept = dept;
+	}
+	
 	
 	
 	

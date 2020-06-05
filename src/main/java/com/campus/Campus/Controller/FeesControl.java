@@ -30,6 +30,7 @@ public class FeesControl {
 	{
 		return service.AddFees(fee);
 	}
+	
 	@ApiOperation(value="Get Fees")
 	@GetMapping("/")
 	public List<Fees> GetAllFees()

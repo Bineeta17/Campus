@@ -1,11 +1,16 @@
 	package com.campus.Campus.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,12 +42,12 @@ public class Student {
 	@ApiModelProperty(notes="Password")
 	String password;
 	
-	@OneToOne
-	@JoinColumn(name="course_id")
+	@ManyToOne
 	private Course course;
 	
-	@OneToOne(mappedBy="student")
-	Account account;
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="student_stu_id")
+	private List<Account> account;
 	
 	public int getStu_id() {
 		return stu_id;
@@ -110,11 +115,12 @@ public class Student {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	public Account getAccount() {
+	public List<Account> getAccount() {
 		return account;
 	}
-	public void setAccount(Account account) {
+	public void setAccount(List<Account> account) {
 		this.account = account;
 	}
+	
 	
 }

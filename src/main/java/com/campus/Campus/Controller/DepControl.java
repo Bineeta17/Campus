@@ -32,7 +32,6 @@ public class DepControl {
 		return service.add(dept);
 	}
 	
-
 	@DeleteMapping("/delete/{id}")
 	public void deleteDept(@PathVariable int id) {
 		service.deleteDepartment(id);
@@ -55,8 +54,6 @@ public class DepControl {
 	{
 		return service.update(dept);
 	}
-	
-	
 	
 	
 	

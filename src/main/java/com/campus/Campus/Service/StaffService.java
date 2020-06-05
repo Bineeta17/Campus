@@ -34,9 +34,7 @@ public class StaffService {
 	{
 		Optional<Staff> staff = dao.findById(staff_id);
 			if (!staff.isPresent()) throw new StudentNotFoundException("id-" + staff_id);
-
 		return staff.get();
-
 	}
 	public Staff DeleteAll(Staff staff)
 	{

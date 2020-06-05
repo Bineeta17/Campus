@@ -27,14 +27,10 @@ public class Department {
 	@ApiModelProperty(notes="Name")
 	private String d_name;
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name = "dept_d_id")
+	private List<Staff> staff;
 	
-//	  @ManyToMany
-//	    @JoinTable(
-//	            name = "department_staff",
-//	            joinColumns = {@JoinColumn(name = "department_d_id", referencedColumnName = "d_id")},
-//	            inverseJoinColumns = {@JoinColumn(name = "staff_staff_id", referencedColumnName = "staff_id")}
-//	    )
-//	    private List<Staff> staff;
 
 	
 	public int getD_id() {
@@ -49,12 +45,12 @@ public class Department {
 	public void setD_name(String d_name) {
 		this.d_name = d_name;
 	}
-//	public List<Staff> getStaff() {
-//		return staff;
-//	}
-//	public void setStaff(List<Staff> staff) {
-//		this.staff = staff;
-//	}
+	public List<Staff> getStaff() {
+		return staff;
+	}
+	public void setStaff(List<Staff> staff) {
+		this.staff = staff;
+	}
 	
 	
 	

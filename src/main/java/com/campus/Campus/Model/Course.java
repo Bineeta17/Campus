@@ -29,19 +29,28 @@ public class Course {
 	String c_name;
 
 
-	@OneToOne(mappedBy = "course")
-	@JsonIgnore
-	private Student stu;
-
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="course_c_id")
+	@JsonIgnore
+	private List<Student> stu;
+
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "course_c_id")
+	@JsonIgnore
 	private List<Account> account;
-
+	
 	@OneToOne
 	@JoinColumn(name = "fee_id")
 	private Fees fee;
+	
+	public List<Student> getStu() {
+		return stu;
+	}
+	public void setStu(List<Student> stu) {
+		this.stu = stu;
+	}
 	
 	public List<Account> getAccount() {
 		return account;
@@ -51,13 +60,7 @@ public class Course {
 		this.account = account;
 	}
 	
-	public Student getStu() {
-		return stu;
-	}
-
-	public void setStu(Student stu) {
-		this.stu = stu;
-	}
+	
 
 	public void setC_name(String c_name) {
 		this.c_name = c_name;
@@ -83,5 +86,6 @@ public class Course {
 	public void setFee(Fees fee) {
 		this.fee = fee;
 	}
+	
 
 }
