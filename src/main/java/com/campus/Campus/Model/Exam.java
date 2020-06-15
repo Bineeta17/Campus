@@ -3,7 +3,6 @@ package com.campus.Campus.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
 @Table(name="exam")
 public class Exam {
@@ -14,6 +13,7 @@ public class Exam {
 	String subject;
 	String semester;
 	float marks;
+
 	public int getExam_id() {
 		return exam_id;
 	}
@@ -44,11 +44,5 @@ public class Exam {
 	public void setMarks(float marks) {
 		this.marks = marks;
 	}
-	
-	
-	
-	
-	
-	
 	
 }

@@ -13,9 +13,9 @@ import com.campus.Campus.Model.Staff;
 
 import springfox.documentation.schema.Example;
 
-
 @Service
 public class DepService {
+	
 	
 	@Autowired
 	private DepDao dao;
@@ -25,6 +25,7 @@ public class DepService {
 	{
 		return dao.save(dept);
 	}
+	
 	public Department add(Department dept)
 	{
 		 if(!dao.findById(dept.getD_id()).isPresent())
@@ -39,7 +40,7 @@ public class DepService {
 		 }
 		 else
 		 {
-			 //Old Department 
+			 //Old Department
 			 System.out.println("Else Part");
 			 Department deptno=dao.findById(dept.getD_id()).get();
 			 for(Staff staff:dept.getStaff())
@@ -50,6 +51,7 @@ public class DepService {
 			 return dept;
 		 }
 	}
+	
 	
 	public void deleteDepartment(int id)
 	{
@@ -71,8 +73,7 @@ public class DepService {
 		{
 			 dao.save(dept);
 			 return dept;
-	}
-	
+		}
 	
 	
 	

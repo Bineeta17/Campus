@@ -20,8 +20,8 @@ public class AccountControl {
 
 	@Autowired
 	private AccountService service;
-	
-	@PostMapping("/") 
+
+	@PostMapping("/")
 	public Account payFees(@RequestBody Student student,@RequestParam String modeOfPayment,@RequestParam String batch)
 	{
 		return service.payFee(student,modeOfPayment,batch);

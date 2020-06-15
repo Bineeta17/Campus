@@ -3,11 +3,18 @@ package com.campus.Campus.Model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,12 +32,16 @@ public class Department {
 	@Id
 	//@GeneratedValue(strategy=GenerationType.AUTO)
 	public int d_id;
+//	@Column(name="dept_d_id")
+//	private int d_id;
 	@ApiModelProperty(notes="Name")
 	private String d_name;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name = "dept_d_id")
 	private List<Staff> staff;
+	
+
 	
 	public int getD_id() {
 		return d_id;
@@ -50,4 +61,5 @@ public class Department {
 	public void setStaff(List<Staff> staff) {
 		this.staff = staff;
 	}
+
 }

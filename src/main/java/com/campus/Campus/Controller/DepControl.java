@@ -60,11 +60,5 @@ public class DepControl {
 	{
 		return service.update(dept);
 	}
-	
-	
-	
-	
-	
-	
 
 }

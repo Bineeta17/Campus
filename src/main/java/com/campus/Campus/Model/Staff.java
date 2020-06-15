@@ -6,8 +6,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -39,9 +42,11 @@ public class Staff {
 	@ApiModelProperty(notes="DOJ_Date")
 	String doj_date;
 	
+
 	@ManyToOne()
 	@JsonIgnore
 	Department dept;
+	
 	
 	public int getStaff_id() {
 		return staff_id;

@@ -36,11 +36,10 @@ public class Course {
 	@JoinColumn(name = "course_c_id")
 	@JsonIgnore
 	private List<Account> account;
-
+	
 	@OneToOne
 	@JoinColumn(name = "fee_id")
 	private Fees fee;
-	
 	
 	public List<Student> getStu() {
 		return stu;
@@ -49,7 +48,7 @@ public class Course {
 	public void setStu(List<Student> stu) {
 		this.stu = stu;
 	}
-
+	
 	public List<Account> getAccount() {
 		return account;
 	}
@@ -57,9 +56,12 @@ public class Course {
 	public void setAccount(List<Account> account) {
 		this.account = account;
 	}
-	
+
 	public void setC_name(String c_name) {
 		this.c_name = c_name;
+	}
+	public String getC_name() {
+		return c_name;
 	}
 
 	public int getC_id() {
@@ -70,10 +72,6 @@ public class Course {
 		this.c_id = c_id;
 	}
 
-	public String getC_name() {
-		return c_name;
-	}
-
 	public Fees getFee() {
 		return fee;
 	}
@@ -81,5 +79,6 @@ public class Course {
 	public void setFee(Fees fee) {
 		this.fee = fee;
 	}
+	
 
 }
