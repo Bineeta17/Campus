@@ -1,9 +1,12 @@
 package com.campus.Campus.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -30,6 +33,16 @@ public class Admin {
 	String qualification;
 	@ApiModelProperty(notes="Experience")
 	String experience;
+	
+	@OneToOne(mappedBy="admin", cascade=CascadeType.ALL)
+	AdminLogin adminLogin;
+	
+	public AdminLogin getAdminLogin() {
+		return adminLogin;
+	}
+	public void setAdminLogin(AdminLogin adminLogin) {
+		this.adminLogin = adminLogin;
+	}
 	public int getAdmin_id() {
 		return admin_id;
 	}
